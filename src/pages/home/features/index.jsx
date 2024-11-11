@@ -24,7 +24,7 @@ const [selectedCategory, setSelectedCategory] = useState("all");
       }
     };
     allData();
-  }, [loadMore]);
+  }, [loadMore, selectedCategory]);
 
   const loadHandler = () => {
     setLoadMore(loadMore + 4);

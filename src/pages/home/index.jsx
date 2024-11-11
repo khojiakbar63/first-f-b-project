@@ -5,7 +5,7 @@ import axios from "axios";
 import "./style.css";
 
 const HomePage = () => {
-  const { loading, loadHandler, data, selectedCategory} = UseProductsFeatures();
+  const { loading, loadHandler, data, setSelectedCategory} = UseProductsFeatures();
   const [categories, setCategories] = useState([]);
 
 
@@ -27,7 +27,7 @@ const HomePage = () => {
       <div className="w-[80%] mx-auto">
         <div className="flex justify-between items-center mt-6">
           <select
-            onChange={(e)=> selectedCategory(e.target.value)}
+            onChange={(e)=> setSelectedCategory(e.target.value)}
             name="category"
             className="select select-bordered w-[200px]"
           >
