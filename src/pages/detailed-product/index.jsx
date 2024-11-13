@@ -12,7 +12,7 @@ const DetailedProduct = () => {
     const getData = async () => {
       const res = await axios({
         method: "GET",
-        url: `http://localhost:4000/api/products/${id}`,
+        url: `${import.meta.env.VITE_BASE_URL}/products/${id}`,
       });
       setProduct(res.data.data || {});
     };
@@ -36,7 +36,10 @@ const DetailedProduct = () => {
             <p className="py-6">
               {product.description}
             </p>
+
             <div className="flex flex-col gap-[10px] mb-[24px]">
+
+              <strong className="text-[20px]"><span className="underline">Category:</span> {product.category}</strong>
               <strong className="text-[20px]"><span className="underline">Price:</span> ${product.price}</strong>
               <strong className="text-[20px] text-[#50B498]"><span className="underline">Sale:</span> {product.discount}%</strong>
             </div>

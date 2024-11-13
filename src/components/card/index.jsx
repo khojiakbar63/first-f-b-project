@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge } from "..";
+import { Badge } from "../../components";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -9,13 +9,12 @@ const index = ({ product }) => {
       if (confirm("Are you sure you want to delete this product?")) {
         const res = await axios({
           method: "DELETE",
-          url: `http://localhost:4000/api/products/${id}`,
+          url: `${import.meta.env.VITE_BASE_URL}/products/${id}`,
         });
         if (res.data.message === "Product deleted") {
           window.location.reload();
         }
       }
-
     } catch (error) {
       console.log(error);
     }
@@ -23,7 +22,7 @@ const index = ({ product }) => {
   return (
     <div
       key={product.id}
-      className="card card-compact bg-base-100 w-[300px] h-[360px] shadow-xl"
+      className="card card-compact bg-base-100 max-w-[300px] h-[360px] shadow-xl"
     >
       <figure>
         <img className="h-[200px]" src={product.imgUrl} alt={product.name} />
@@ -45,8 +44,11 @@ const index = ({ product }) => {
                 View
               </button>
             </Link>
-
-            <button className="btn btn-sm btn-warning text-white">Edit</button>
+            <Link to={`/edit-product/${product.id}`}>
+              <button className="btn btn-sm btn-primary text-white">
+                Edit
+              </button>
+            </Link>
           </div>
           <button
             onClick={() => handleDelete(product.id)}

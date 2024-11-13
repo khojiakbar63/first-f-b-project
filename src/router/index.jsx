@@ -1,5 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { DetailedPage, HomePage } from "../pages";
+import { AddModal, DetailedPage, EditModal, HomePage } from "../pages";
+
 
 const AppRouter = () => {
     const router = createBrowserRouter([
@@ -11,6 +12,14 @@ const AppRouter = () => {
           path: "/detailed-product/:id",
           element: <DetailedPage />,
         },
+        {
+          path:"/edit-product/:id" ,
+          element: <EditModal />,  
+        },
+        {
+          path:"/add-product" ,
+          element: <AddModal />,
+        }
       ],
       {
         future: {
