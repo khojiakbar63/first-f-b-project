@@ -49,7 +49,7 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="max-w-[1280px] px-5 mx-auto">
+      <div className="max-w-[1280px] px-5 mx-auto mb-10">
         <div className=" lg:flex justify-between items-center mt-6">
           <select
             onChange={handleCategoryChange}
