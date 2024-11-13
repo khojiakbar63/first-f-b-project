@@ -49,12 +49,12 @@ const HomePage = () => {
   return (
     <>
       <Header />
-      <div className="max-w-[1280px] px-5 mx-auto mb-10">
-        <div className=" lg:flex justify-between items-center mt-6">
+      <div className="max-w-[1280px] px-5 mx-auto mb-10 text-red-200">
+        <div className=" lg:flex justify-between items-center mt-6 te">
           <select
             onChange={handleCategoryChange}
             name="category"
-            className="select select-bordered max-w-[200px]"
+            className="select select-bordered max-w-[200px] "
             value={selectedCategory}
           >
             <option value="all">All</option>
@@ -65,11 +65,11 @@ const HomePage = () => {
             ))}
           </select>
 
-          <div className="form-control">
+          <div className="form-control w-fit">
             <input
               type="text"
               placeholder="Search"
-              className="input input-bordered max-w-[400px]"
+              className="input input-bordered !max-w-[400px]"
               onChange={handleSearch}
               value={searchTerm}
             />
